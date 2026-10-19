@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js");</script>
+<title>Muhammad Ahmad — Backend Engineer</title>
+<meta name="description" content="Muhammad Ahmad is a backend engineer in Lahore building multi-tenant fintech systems with TypeScript, Node.js, Python, and PostgreSQL. Open to relocation to Germany.">
+<meta name="author" content="Muhammad Ahmad">
+<meta name="theme-color" content="#0e0e0c">
+<meta property="og:title" content="Muhammad Ahmad — Backend Engineer">
+<meta property="og:description" content="Multi-tenant APIs, transaction ledgers, and rules engines for a regulated trading platform. Open to Germany.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e0e0c'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='13' fill='%23f4efe6'%3EMA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Muhammad Ahmad",
+  "jobTitle": "Backend Engineer",
+  "email": "mailto:ownshah962@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "PK" },
+  "sameAs": ["https://linkedin.com/in/-mahmed", "https://github.com/MAhmed9211"]
+}
+</script>
+<style>
+  :root {
+    --ink: #0e0e0c;
+    --cream: #f4efe6;
+    --paper: #efeae1;
+    --paper-2: #f7f4ee;
+    --text: #1a1916;
+    --muted: #5e594f;
+    --muted-dark: #b7b1a6;
+    --line: rgba(22, 21, 19, 0.14);
+    --line-dark: rgba(244, 239, 230, 0.14);
+    --signal: #ff4d1c;
+    --signal-deep: #c4320e;
+    --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --sans: "Outfit", "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --nav-h: 74px;
+    --max: 1160px;
+    --ease: cubic-bezier(.16, 1, .3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+  body {
+    font-family: var(--sans);
+    background: var(--ink);
+    color: var(--cream);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  button, input { font: inherit; color: inherit; }
+  a { color: inherit; }
+  ::selection { background: var(--signal); color: #1a0703; }
+  :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .skip {
+    position: absolute; left: 16px; top: -48px; z-index: 80;
+    background: var(--signal); color: #1a0703; padding: 8px 12px; border-radius: 8px;
+  }
+  .skip:focus { top: 12px; }
+
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 70;
+    background: var(--signal); transform: scaleX(0); transform-origin: 0 50%;
+  }
+
+  .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+  /* NAV */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 60;
+    height: var(--nav-h);
+    display: flex; align-items: center;
+    color: var(--cream);
+    transition: background .35s var(--ease), color .35s var(--ease), border-color .35s;
+    border-bottom: 1px solid transparent;
+  }
+  .nav-inner {
+    width: min(var(--max), calc(100% - 48px));
+    margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .nav.is-stuck {
+    background: rgba(14, 14, 12, 0.9);
+    border-bottom-color: var(--line-dark);
+    backdrop-filter: blur(16px);
+  }
+  .nav.on-paper {
+    background: rgba(239, 234, 225, 0.92);
+    color: var(--text);
+    border-bottom-color: var(--line);
+    backdrop-filter: blur(16px);
+  }
+  body.menu-open .nav { color: var(--cream); background: transparent; border-bottom-color: transparent; backdrop-filter: none; }
+  .logo {
+    text-decoration: none; font-family: var(--serif); font-size: 1.35rem; letter-spacing: -0.03em;
+  }
+  .logo em { font-style: italic; }
+  .nav-links { display: flex; gap: 26px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.92rem; position: relative;
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: -4px; width: 100%; height: 1px;
+    background: currentColor; transform: scaleX(0); transform-origin: left;
+    transition: transform .35s var(--ease);
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    text-decoration: none; font-size: 0.82rem; letter-spacing: 0.04em;
+    border: 1px solid currentColor; border-radius: 999px; padding: 8px 14px;
+    transition: background .3s, color .3s, border-color .3s;
+  }
+  .nav-cta:hover { background: var(--signal); border-color: var(--signal); color: #1a0703; }
+  .nav-toggle {
+    display: none; width: 46px; height: 46px; border-radius: 50%;
+    border: 1px solid currentColor; background: transparent; position: relative; cursor: pointer;
+  }
+  .nav-toggle span {
+    position: absolute; left: 14px; right: 14px; height: 1.5px; background: currentColor;
+    transition: transform .35s var(--ease), top .35s var(--ease);
+  }
+  .nav-toggle span:first-child { top: 19px; }
+  .nav-toggle span:last-child { top: 26px; }
+  body.menu-open .nav-toggle span:first-child { top: 22px; transform: rotate(45deg); }
+  body.menu-open .nav-toggle span:last-child { top: 22px; transform: rotate(-45deg); }
+
+  .overlay {
+    display: none;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding: calc(var(--nav-h) + 28px) 0 88px;
+    overflow: hidden;
+    background:
+      radial-gradient(900px 520px at 88% 8%, rgba(255, 77, 28, 0.18), transparent 58%),
+      radial-gradient(700px 480px at 8% 90%, rgba(244, 239, 230, 0.06), transparent 60%),
+      var(--ink);
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--line-dark) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at 70% 20%, #000 0%, transparent 72%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+    gap: 48px;
+    align-items: end;
+    width: min(var(--max), calc(100% - 48px));
+    margin: 0 auto;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted-dark); margin-bottom: 22px;
+  }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--signal);
+    box-shadow: 0 0 0 0 rgba(255, 77, 28, 0.55);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    70% { box-shadow: 0 0 0 8px rgba(255, 77, 28, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 28, 0); }
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(3.4rem, 9.4vw, 8.4rem);
+    line-height: 0.84;
+    letter-spacing: -0.045em;
+  }
+  h1 .ital { font-style: italic; }
+  h1 .mark { color: var(--signal); }
+  .mask { display: block; overflow: hidden; }
+  .deck {
+    margin-top: 28px;
+    max-width: 38rem;
+    font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+    line-height: 1.55;
+    color: #ddd6cb;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 48px; padding: 0 18px; border-radius: 999px;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer;
+    transition: transform .35s var(--ease), background .3s, color .3s, border-color .3s;
+  }
+  .btn svg { width: 16px; height: 16px; }
+  .btn-fill { background: var(--signal); color: #1a0703; font-weight: 600; }
+  .btn-fill:hover { background: #ff734c; transform: translateY(-2px); }
+  .btn-ghost { border-color: rgba(244, 239, 230, 0.28); color: var(--cream); background: transparent; }
+  .btn-ghost:hover { border-color: var(--cream); transform: translateY(-2px); }
+  .btn-ink { background: var(--text); color: var(--cream); }
+  .btn-ink:hover { background: #000; transform: translateY(-2px); }
+  .btn-line { border-color: var(--line); color: var(--text); background: transparent; }
+  .btn-line:hover { border-color: var(--text); transform: translateY(-2px); }
+
+  .spec {
+    border: 1px solid var(--line-dark);
+    background: rgba(14, 14, 12, 0.55);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    padding: 8px 20px 12px;
+    margin: 0;
+  }
+  .spec dl { margin: 0; }
+  .spec-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 0 8px;
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted-dark);
+  }
+  .spec-top b { color: var(--signal); font-weight: 500; }
+  .spec-row {
+    display: grid; grid-template-columns: 88px 1fr; gap: 10px;
+    padding: 11px 0; border-top: 1px solid var(--line-dark);
+    font-family: var(--mono); font-size: 0.78rem;
+  }
+  .spec dt { color: var(--muted-dark); text-transform: uppercase; letter-spacing: 0.08em; }
+  .spec dd { margin: 0; color: var(--cream); }
+  .spec .hot { color: var(--signal); }
+
+  .scroll-hint {
+    position: absolute; left: max(24px, calc((100% - var(--max)) / 2)); bottom: 28px;
+    display: inline-flex; align-items: center; gap: 12px;
+    color: var(--muted-dark); text-decoration: none;
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .scroll-hint i {
+    display: block; width: 1px; height: 42px; background: rgba(244,239,230,0.3); position: relative; overflow: hidden;
+  }
+  .scroll-hint i::after {
+    content: ""; position: absolute; left: 0; top: -40%; width: 100%; height: 40%; background: var(--signal);
+    animation: drop 1.8s var(--ease) infinite;
+  }
+  @keyframes drop { to { top: 110%; } }
+
+  /* MARQUEE */
+  .marquee {
+    overflow: hidden; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark);
+    background: #141412; padding: 16px 0;
+  }
+  .marquee-track { display: flex; width: max-content; }
+  .marquee-group { display: flex; align-items: center; gap: 0; padding-right: 0; }
+  .marquee span {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #ddd6cb; padding: 0 22px; white-space: nowrap;
+  }
+  .marquee em { color: var(--signal); font-style: normal; }
+
+  /* PAPER */
+  .paper { background: var(--paper); color: var(--text); }
+  .block { padding: clamp(76px, 11vh, 130px) 0; }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
+    border-top: 1px solid var(--line); padding-top: 18px; margin-bottom: 42px;
+  }
+  .section-head h2 { min-width: 0; text-align: right; }
+  .kicker {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  }
+  .section-head h2, .contact h2, .about-copy {
+    font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em;
+  }
+  .section-head h2 { font-size: clamp(2.2rem, 4.4vw, 3.5rem); line-height: 0.95; }
+
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .stat { padding-right: 12px; }
+  .stat b {
+    display: block; font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.6rem, 4.6vw, 4rem); letter-spacing: -0.04em; line-height: 1;
+  }
+  .stat span { display: block; margin-top: 10px; color: var(--muted); font-size: 0.95rem; max-width: 16rem; }
+
+  .about-grid {
+    display: grid; grid-template-columns: 0.8fr 1.4fr; gap: 40px; align-items: start;
+  }
+  .about-copy {
+    font-size: clamp(1.45rem, 2.5vw, 2.05rem);
+    line-height: 1.28;
+  }
+  .about-copy em { font-style: italic; }
+  .facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .facts li {
+    list-style: none; border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 14px; font-size: 0.9rem; background: var(--paper-2);
+  }
+
+  .role {
+    display: flex; justify-content: space-between; gap: 16px; align-items: flex-end;
+    margin-bottom: 22px;
+  }
+  .role h3 { font-size: 1.45rem; font-weight: 600; letter-spacing: -0.03em; }
+  .org { font-family: var(--serif); font-style: italic; font-size: 1.7rem; color: var(--signal-deep); line-height: 1; }
+  .when { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+  .tablist { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 8px 0 18px; }
+  .tablist::-webkit-scrollbar { display: none; }
+  .tablist [role="tab"] {
+    border: 1px solid var(--line); background: transparent; color: var(--text);
+    border-radius: 999px; padding: 10px 14px; cursor: pointer; white-space: nowrap;
+    transition: background .3s, color .3s, border-color .3s;
+  }
+  .tablist [role="tab"][aria-selected="true"] {
+    background: var(--text); color: var(--cream); border-color: var(--text);
+  }
+  .panel-title { font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--signal-deep); margin-bottom: 12px; font-weight: 600; }
+  .bullets { list-style: none; display: grid; gap: 14px; max-width: 760px; }
+  .bullets li {
+    position: relative; padding-left: 18px; color: var(--muted); font-size: 1.02rem;
+  }
+  .bullets li::before {
+    content: ""; position: absolute; left: 0; top: 0.65em; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--signal);
+  }
+  .job + .job { margin-top: 54px; padding-top: 28px; border-top: 1px solid var(--line); }
+
+  .feature {
+    background: #141412; color: var(--cream);
+    border-radius: 28px; padding: clamp(28px, 4vw, 52px);
+    display: grid; grid-template-columns: 1.3fr 0.8fr; gap: 36px;
+    position: relative; overflow: hidden;
+  }
+  .feature::after {
+    content: ""; position: absolute; width: 280px; height: 280px; right: -80px; top: -90px;
+    background: radial-gradient(circle, rgba(255,77,28,0.28), transparent 68%);
+    pointer-events: none;
+  }
+  .feature h3 {
+    font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 400;
+    letter-spacing: -0.03em; line-height: 0.95; margin: 12px 0 16px; position: relative;
+  }
+  .feature p { color: #ddd6cb; max-width: 38rem; position: relative; }
+  .tags, .skill-line { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+  .tags { margin-top: 22px; position: relative; }
+  .tags li, .skill-line li {
+    border: 1px solid rgba(244,239,230,0.18); border-radius: 999px; padding: 6px 11px;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
+  }
+  .system-map { list-style: none; display: grid; align-content: end; gap: 0; position: relative; }
+  .system-map li {
+    display: flex; justify-content: space-between; gap: 12px;
+    border-top: 1px solid var(--line-dark); padding: 14px 0;
+    font-size: 1rem;
+  }
+  .system-map span { font-family: var(--mono); font-size: 0.72rem; color: var(--signal); letter-spacing: 0.08em; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .pair article {
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 22px; padding: 28px;
+    transition: transform .45s var(--ease), border-color .3s;
+  }
+  .pair article:hover { transform: translateY(-6px); border-color: rgba(22,21,19,0.32); }
+  .pair h3 { font-size: 1.45rem; letter-spacing: -0.03em; margin: 8px 0 10px; }
+  .pair p { color: var(--muted); }
+  .pair .tags li { border-color: var(--line); color: var(--text); }
+
+  .skill-row {
+    display: grid; grid-template-columns: 210px 1fr; gap: 18px;
+    align-items: center; padding: 18px 0; border-top: 1px solid var(--line);
+  }
+  .skill-row h3 { font-size: 1rem; font-weight: 600; }
+  .js .tab-panel { display: none; }
+  .js .tab-panel.is-active { display: block; }
+  .skill-line li {
+    border-color: var(--line); color: var(--text); background: transparent;
+    font-family: var(--sans); font-size: 0.92rem; letter-spacing: 0; padding: 7px 12px;
+    transition: background .25s, color .25s, border-color .25s, transform .25s var(--ease);
+  }
+  .skill-line li:hover { background: var(--text); color: var(--cream); border-color: var(--text); transform: translateY(-2px); }
+
+  .edu {
+    display: flex; justify-content: space-between; gap: 20px; align-items: baseline;
+    border-top: 1px solid var(--line); padding-top: 22px;
+  }
+  .edu h3 { font-size: 1.6rem; font-weight: 500; letter-spacing: -0.03em; }
+  .edu h3 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--signal-deep); }
+  .edu .meta, .courses { color: var(--muted); }
+  .courses { margin-top: 8px; max-width: 46rem; }
+  .edu .year { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; }
+
+  /* CONTACT */
+  .contact {
+    padding: clamp(90px, 14vh, 160px) 0 clamp(70px, 10vh, 110px);
+    background:
+      radial-gradient(700px 380px at 90% 0%, rgba(255,77,28,0.2), transparent 60%),
+      var(--ink);
+    color: var(--cream);
+  }
+  .contact h2 {
+    font-size: clamp(3.2rem, 8vw, 7rem); line-height: 0.9; max-width: 12ch;
+  }
+  .contact h2 em { font-style: italic; color: var(--signal); }
+  .mail-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 32px; }
+  .mail {
+    font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.3rem);
+    text-decoration: none; border-bottom: 1px solid rgba(244,239,230,0.3);
+    letter-spacing: -0.03em;
+  }
+  .mail:hover { border-bottom-color: var(--signal); color: var(--signal); }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px; }
+  .contact-links a { text-decoration: none; border-bottom: 1px solid transparent; }
+  .contact-links a:hover { border-bottom-color: currentColor; }
+  footer {
+    background: var(--ink); color: var(--muted-dark);
+    border-top: 1px solid var(--line-dark);
+    padding: 22px 0 28px; font-size: 0.88rem;
+  }
+  .foot {
+    width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .mask > span {
+      display: block;
+      transform: translateY(112%);
+      animation: rise 1.05s var(--ease) forwards;
+    }
+    .mask:nth-child(2) > span { animation-delay: .1s; }
+    .deck, .cta-row, .spec { animation: rise-fade .9s var(--ease) both; }
+    .deck { animation-delay: .28s; }
+    .cta-row { animation-delay: .4s; }
+    .spec { animation-delay: .48s; }
+    .marquee-track { animation: ticker 36s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .js .reveal.wait {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+      transition-delay: var(--d, 0s);
+    }
+    .js .reveal.in { opacity: 1; transform: none; }
+    .js .tab-panel.is-active { animation: rise-fade .45s var(--ease); }
+  }
+  @keyframes rise { to { transform: none; } }
+  @keyframes rise-fade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-toggle { display: block; }
+    .overlay {
+      display: flex; flex-direction: column; justify-content: flex-end;
+      position: fixed; inset: 0; z-index: 50; background: rgba(14,14,12,0.97);
+      padding: 28px 24px 48px; gap: 8px;
+      opacity: 0; pointer-events: none; transform: translateY(-10px);
+      transition: opacity .4s var(--ease), transform .4s var(--ease);
+    }
+    body.menu-open .overlay { opacity: 1; pointer-events: auto; transform: none; }
+    body.menu-open { overflow: hidden; }
+    .overlay a {
+      text-decoration: none; font-family: var(--serif);
+      font-size: clamp(2.6rem, 12vw, 4rem); line-height: 1.02; letter-spacing: -0.03em;
+    }
+    .overlay a em { font-style: italic; color: var(--signal); }
+    .hero-grid, .about-grid, .feature, .pair, .stats-grid, .skill-row { grid-template-columns: 1fr; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .section-head h2 { text-align: left; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .system-map { align-content: start; }
+    .edu { flex-direction: column; }
+    .scroll-hint { display: none; }
+  }
+  @media (max-width: 640px) {
+    .container, .hero-grid, .nav-inner, .foot { width: min(var(--max), calc(100% - 32px)); }
+    .role { flex-direction: column; align-items: flex-start; }
+    .stats-grid { gap: 22px 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation: none !important; transition: none !important;
+    }
+    .pair article:hover, .btn:hover, .skill-line li:hover { transform: none; }
+  }
+  @media print {
+    .nav, .marquee, .scroll-hint, .progress, .overlay, .nav-toggle { display: none !important; }
+    body, .hero, .contact, footer, .feature { background: white !important; color: black !important; }
+    .paper { background: white; }
+    a { text-decoration: underline; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">Muhammad <em>Ahmad</em></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="#contact">Open to Germany</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="menu">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#work">Work</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact <em>↗</em></a>
+</div>
+
+<main id="content">
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Backend engineer · Lahore</p>
+        <h1>
+          <span class="mask"><span>Muhammad</span></span>
+          <span class="mask"><span class="ital">Ahmad<span class="mark">.</span></span></span>
+        </h1>
+        <p class="deck">I build the backends a regulated trading platform actually runs on. Multi-tenant auth, transaction ledgers, and rules engines that stay fast under audit.</p>
+        <div class="cta-row">
+          <a class="btn btn-fill" href="mailto:ownshah962@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/-mahmed" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/MAhmed9211" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <aside class="spec" aria-label="At a glance">
+        <div class="spec-top"><span>Now</span><b>In production</b></div>
+        <dl>
+          <div class="spec-row"><dt>Role</dt><dd>Backend engineer</dd></div>
+          <div class="spec-row"><dt>Company</dt><dd>SiliconFort</dd></div>
+          <div class="spec-row"><dt>Stack</dt><dd>TS · Node · Python · SQL</dd></div>
+          <div class="spec-row"><dt>Queries</dt><dd>&lt;100ms</dd></div>
+          <div class="spec-row"><dt>Lahore</dt><dd data-clock="lahore">--:--:--</dd></div>
+          <div class="spec-row"><dt>Berlin</dt><dd data-clock="berlin">--:--:--</dd></div>
+          <div class="spec-row"><dt>Status</dt><dd class="hot">Open to Germany</dd></div>
+        </dl>
+      </aside>
+    </div>
+    <a class="scroll-hint" href="#impact"><span>Scroll</span><i></i></a>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>TypeScript</span><em>+</em><span>Node.js</span><em>+</em><span>Python</span><em>+</em><span>PostgreSQL</span><em>+</em><span>FastAPI</span><em>+</em><span>Redis</span><em>+</em><span>Docker</span><em>+</em><span>REST</span><em>+</em><span>JWT</span><em>+</em><span>n8n</span><em>+</em><span>CI/CD</span><em>+</em><span>Multi-tenant systems</span><em>+</em>
+      </div>
+      <div class="marquee-group">
+        <span>TypeScript</span><em>+</em><span>Node.js</span><em>+</em><span>Python</span><em>+</em><span>PostgreSQL</span><em>+</em><span>FastAPI</span><em>+</em><span>Redis</span><em>+</em><span>Docker</span><em>+</em><span>REST</span><em>+</em><span>JWT</span><em>+</em><span>n8n</span><em>+</em><span>CI/CD</span><em>+</em><span>Multi-tenant systems</span><em>+</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <section class="block" id="impact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">01 — Impact</p>
+          <h2>Numbers from production.</h2>
+        </div>
+        <div class="stats-grid">
+          <article class="stat reveal" style="--d:.05s">
+            <b data-count="100" data-prefix="&lt;" data-suffix="ms">&lt;100ms</b>
+            <span>Database query performance at SiliconFort</span>
+          </article>
+          <article class="stat reveal" style="--d:.12s">
+            <b data-count="85" data-suffix="%">85%</b>
+            <span>Less manual processing for client workflows</span>
+          </article>
+          <article class="stat reveal" style="--d:.19s">
+            <b data-count="99.5" data-decimals="1" data-suffix="%">99.5%</b>
+            <span>Uptime across automation workflows</span>
+          </article>
+          <article class="stat reveal" style="--d:.26s">
+            <b data-count="4.9" data-decimals="1" data-suffix="/5">4.9/5</b>
+            <span>Client satisfaction across 10+ projects</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="about" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">02 — About</p>
+          <h2>The short version.</h2>
+        </div>
+        <div class="about-grid">
+          <p class="kicker reveal">Lahore → Germany</p>
+          <div class="reveal" style="--d:.08s">
+            <p class="about-copy">Backend engineer with 2+ years in production, building financial systems for a regulated fintech trading platform. I design <em>multi-tenant APIs</em>, transaction ledgers, and configurable business-rules engines.</p>
+            <ul class="facts">
+              <li>TypeScript, Node.js, Python, PostgreSQL</li>
+              <li>Sub-100ms queries</li>
+              <li>20+ automations · EU, US, UK</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="experience" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">03 — Experience</p>
+          <h2>Where the work happened.</h2>
+        </div>
+
+        <article class="job reveal">
+          <div class="role">
+            <div>
+              <h3>Backend Engineer</h3>
+              <p class="org">SiliconFort</p>
+            </div>
+            <p class="when">Dec 2024 — Present</p>
+          </div>
+          <div class="tabs">
+            <div class="tablist" role="tablist" aria-label="SiliconFort systems">
+              <button type="button" role="tab" id="tab-auth" aria-controls="panel-auth" aria-selected="true">Authentication</button>
+              <button type="button" role="tab" id="tab-leads" aria-controls="panel-leads" aria-selected="false" tabindex="-1">Lead routing</button>
+              <button type="button" role="tab" id="tab-ledger" aria-controls="panel-ledger" aria-selected="false" tabindex="-1">Transactions</button>
+              <button type="button" role="tab" id="tab-approvals" aria-controls="panel-approvals" aria-selected="false" tabindex="-1">Approvals</button>
+            </div>
+            <div class="tab-panel is-active" role="tabpanel" id="panel-auth" aria-labelledby="tab-auth">
+              <p class="panel-title">Authentication & multi-tenant platform</p>
+              <ul class="bullets">
+                <li>Designed a multi-tenant authentication system with brand-pinned JWTs, device-bound sessions, and separate operator and client portals across brands.</li>
+                <li>Built registration with email and mobile OTP, duplicate detection, and reactivation paths — complex state transitions, clean API.</li>
+              </ul>
+            </div>
+            <div class="tab-panel" role="tabpanel" id="panel-leads" aria-labelledby="tab-leads">
+              <p class="panel-title">Lead assignment engine</p>
+              <ul class="bullets">
+                <li>Priority-based routing with AND/OR conditions, weighted and round-robin distribution, and capacity constraints — manual assignment replaced by a configurable system.</li>
+                <li>Rule versioning and unmatched-reason logging so every decision stays auditable.</li>
+              </ul>
+            </div>
+            <div class="tab-panel" role="tabpanel" id="panel-ledger" aria-labelledby="tab-ledger">
+              <p class="panel-title">Financial transactions API</p>
+              <ul class="bullets">
+                <li>Deposit and withdrawal ledger for card, wire, and crypto — idempotent payment intents, provider callbacks, and one transaction status across PSPs.</li>
+                <li>Fund reservation and multi-stage review across risk, finance, and treasury, so a payout cannot fire twice.</li>
+              </ul>
+            </div>
+            <div class="tab-panel" role="tabpanel" id="panel-approvals" aria-labelledby="tab-approvals">
+              <p class="panel-title">Configurable approvals engine</p>
+              <ul class="bullets">
+                <li>Brand-scoped approvals routing money through configurable levels, quorum, SLA, escalation, and four-eyes rules.</li>
+                <li>Parallel-safe handling with a single auditable outcome per financial event.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="job reveal" style="--d:.08s">
+          <div class="role">
+            <div>
+              <h3>Integration & Automation Engineer</h3>
+              <p class="org">Freelance / Contract</p>
+            </div>
+            <p class="when">Jun — Dec 2024</p>
+          </div>
+          <ul class="bullets">
+            <li>Architected 20+ automated workflows for clients in the EU, US, and UK with n8n, Make.com, and Zapier — manual processing down 85%.</li>
+            <li>API integrations connecting property management systems with CRM, booking platforms, and operational tools.</li>
+            <li>Email automation for 500+ daily messages, multi-language, cutting response time by 70%.</li>
+            <li>99.5% uptime and 4.9/5.0 satisfaction across 10+ projects.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="work" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">04 — Selected work</p>
+          <h2>Systems, not slides.</h2>
+        </div>
+        <article class="feature reveal">
+          <div>
+            <p class="kicker" style="color:#b7b1a6">01 — Flagship</p>
+            <h3>Trading CRM Platform</h3>
+            <p>Production multi-tenant B2B backend for a regulated trading platform. Authentication, lead routing, the transaction ledger, and the approvals engine, with full audit trails and sub-100ms queries.</p>
+            <ul class="tags">
+              <li>TypeScript</li><li>Node.js</li><li>Python</li><li>PostgreSQL</li><li>REST</li><li>CI/CD</li>
+            </ul>
+          </div>
+          <ol class="system-map">
+            <li><span>01</span> Multi-tenant auth</li>
+            <li><span>02</span> Lead routing</li>
+            <li><span>03</span> Transaction ledger</li>
+            <li><span>04</span> Approvals engine</li>
+          </ol>
+        </article>
+        <div class="pair">
+          <article class="reveal" style="--d:.08s">
+            <p class="kicker">02</p>
+            <h3>Automation Workflows</h3>
+            <p>20+ business workflows for international hospitality clients. API integrations across operations, CRM, and booking platforms, with error handling that holds up in production.</p>
+            <ul class="tags">
+              <li>n8n</li><li>Make.com</li><li>Zapier</li><li>REST</li><li>Webhooks</li>
+            </ul>
+          </article>
+          <article class="reveal" style="--d:.16s">
+            <p class="kicker">03</p>
+            <h3>Email Automation System</h3>
+            <p>High-volume email automation for 500+ daily guest messages, with multi-language support and dynamic templates.</p>
+            <ul class="tags">
+              <li>Google Apps Script</li><li>APIs</li><li>Automation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="skills" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">05 — Skills</p>
+          <h2>The toolkit.</h2>
+        </div>
+        <div class="skill-row reveal"><h3>Backend & languages</h3><ul class="skill-line"><li>TypeScript</li><li>Node.js</li><li>Express.js</li><li>Python</li><li>FastAPI</li><li>Java</li><li>SQL</li></ul></div>
+        <div class="skill-row reveal"><h3>Databases</h3><ul class="skill-line"><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Redis</li><li>Data modeling</li><li>Query optimization</li></ul></div>
+        <div class="skill-row reveal"><h3>Architecture & APIs</h3><ul class="skill-line"><li>REST</li><li>Microservices</li><li>Clean architecture</li><li>Multi-tenant systems</li><li>Event-driven patterns</li></ul></div>
+        <div class="skill-row reveal"><h3>DevOps & testing</h3><ul class="skill-line"><li>Docker</li><li>Git</li><li>CI/CD</li><li>Automated testing</li><li>TDD</li><li>Code reviews</li></ul></div>
+        <div class="skill-row reveal"><h3>Security</h3><ul class="skill-line"><li>JWT</li><li>OAuth2</li><li>OTP</li><li>Role-based access</li><li>Encryption</li></ul></div>
+        <div class="skill-row reveal"><h3>Integration</h3><ul class="skill-line"><li>n8n</li><li>Make.com</li><li>Zapier</li><li>Webhooks</li><li>Google Apps Script</li></ul></div>
+      </div>
+    </section>
+
+    <section class="block" id="education" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">06 — Education</p>
+          <h2>FAST-NUCES.</h2>
+        </div>
+        <div class="edu reveal">
+          <div>
+            <h3>B.S. Computer Science, <em>FAST-NUCES</em></h3>
+            <p class="meta">National University of Computer & Emerging Sciences · Lahore</p>
+            <p class="courses">Data Structures & Algorithms, Database Systems, Software Design & Analysis, Computer Networks, Operating Systems, Web Programming.</p>
+          </div>
+          <p class="year">2025</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <p class="kicker" style="color:#b7b1a6">07 — Contact</p>
+      <h2>Open to building in <em>Germany</em></h2>
+      <div class="mail-row">
+        <a class="mail" href="mailto:ownshah962@gmail.com">ownshah962@gmail.com</a>
+        <button class="btn btn-ghost" type="button" id="copy-email">Copy email</button>
+      </div>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/-mahmed" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/MAhmed9211" target="_blank" rel="noopener">GitHub</a>
+        <span>Lahore, Pakistan</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <p>© <span id="year">2026</span> Muhammad Ahmad</p>
+    <p>Backend engineer · Open to Germany</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var nav = document.querySelector(".nav");
+  var paper = document.querySelector(".paper");
+  var contact = document.querySelector(".contact");
+  var toggle = document.querySelector(".nav-toggle");
+  var menu = document.getElementById("menu");
+  var progress = document.querySelector(".progress");
+
+  function clocks() {
+    var fmt = function (zone) {
+      return new Intl.DateTimeFormat("en-GB", {
+        timeZone: zone, hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+      }).format(new Date());
+    };
+    var lahore = document.querySelector('[data-clock="lahore"]');
+    var berlin = document.querySelector('[data-clock="berlin"]');
+    if (lahore) lahore.textContent = fmt("Asia/Karachi");
+    if (berlin) berlin.textContent = fmt("Europe/Berlin");
+  }
+  clocks();
+  setInterval(clocks, 1000);
+  document.getElementById("year").textContent = String(new Date().getFullYear());
+
+  function paintChrome() {
+    var y = window.scrollY + 8;
+    nav.classList.toggle("is-stuck", window.scrollY > 12);
+    if (paper && contact) {
+      nav.classList.toggle("on-paper", y >= paper.offsetTop && y < contact.offsetTop);
+    }
+    var height = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = "scaleX(" + (height > 0 ? window.scrollY / height : 0) + ")";
+  }
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      requestAnimationFrame(function () { paintChrome(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener("resize", paintChrome);
+  paintChrome();
+
+  function closeMenu() {
+    document.body.classList.remove("menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+  }
+  toggle.addEventListener("click", function () {
+    var open = document.body.classList.toggle("menu-open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (open) menu.querySelector("a").focus();
+  });
+  menu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  document.querySelectorAll(".tabs").forEach(function (root) {
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+    function activate(index) {
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.setAttribute("aria-selected", String(on));
+        tab.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach(function (panel, i) {
+        var on = i === index;
+        panel.classList.toggle("is-active", on);
+        if (on) panel.removeAttribute("hidden");
+        else panel.setAttribute("hidden", "");
+      });
+    }
+    panels.forEach(function (panel, i) {
+      if (i !== 0) panel.setAttribute("hidden", "");
+    });
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { activate(i); });
+      tab.addEventListener("keydown", function (event) {
+        if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+        event.preventDefault();
+        var next = event.key === "ArrowRight" ? (i + 1) % tabs.length : (i - 1 + tabs.length) % tabs.length;
+        activate(next);
+        tabs[next].focus();
+      });
+    });
+  });
+
+  if (!reduce) {
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("wait"); });
+    var scanReveals = function () {
+      var viewH = window.innerHeight || document.documentElement.clientHeight;
+      document.querySelectorAll(".reveal.wait:not(.in)").forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.bottom > 48 && r.top < viewH - 24) el.classList.add("in");
+      });
+    };
+    scanReveals();
+    window.addEventListener("scroll", scanReveals, { passive: true });
+    window.addEventListener("resize", scanReveals);
+  }
+
+  document.querySelectorAll("[data-count]").forEach(function (el) {
+    var target = parseFloat(el.dataset.count);
+    var decimals = parseInt(el.dataset.decimals || "0", 10);
+    var prefix = el.dataset.prefix || "";
+    var suffix = el.dataset.suffix || "";
+    if (reduce) {
+      el.textContent = prefix + target.toFixed(decimals) + suffix;
+      return;
+    }
+    var started = false;
+    var counter = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting || started) return;
+        started = true;
+        var t0 = performance.now();
+        function frame(now) {
+          var t = Math.min(1, (now - t0) / 1100);
+          var eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+          if (t < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+        counter.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counter.observe(el);
+  });
+
+  var copyBtn = document.getElementById("copy-email");
+  copyBtn.addEventListener("click", function () {
+    var email = "ownshah962@gmail.com";
+    var done = function () {
+      copyBtn.textContent = "Copied";
+      setTimeout(function () { copyBtn.textContent = "Copy email"; }, 1600);
+    };
+    var fallback = function () {
+      var area = document.createElement("textarea");
+      area.value = email;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+      area.remove();
+      if (ok) done();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(done).catch(fallback);
+    } else {
+      fallback();
+    }
+  });
+})();
+</script>
+</body>
+</html>
