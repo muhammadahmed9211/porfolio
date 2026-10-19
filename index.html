@@ -286,14 +286,20 @@
     display: flex; justify-content: space-between; align-items: baseline; gap: 18px;
     border-top: 1px solid var(--line); padding-top: 18px; margin-bottom: 42px;
   }
+  .section-head { align-items: center; }
   .section-head h2 { min-width: 0; text-align: right; }
   .kicker {
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+    font-family: var(--mono); font-size: 0.92rem; letter-spacing: 0.12em; text-transform: uppercase; color: #2a2825;
   }
   .section-head h2, .contact h2, .about-copy {
     font-family: var(--serif); font-weight: 400; letter-spacing: -0.03em;
   }
-  .section-head h2 { font-size: clamp(2.2rem, 4.4vw, 3.5rem); line-height: 0.95; }
+  .section-head h2 {
+    font-size: clamp(1.45rem, 2vw, 1.85rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #2a2825;
+  }
 
   .stats-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
@@ -377,8 +383,9 @@
     font-size: 1rem;
   }
   .system-map span { font-family: var(--mono); font-size: 0.72rem; color: var(--signal); letter-spacing: 0.08em; }
+  .system-map b { font-weight: 400; text-align: right; min-width: 0; }
 
-  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .pair { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
   .pair article {
     background: var(--paper-2); border: 1px solid var(--line); border-radius: 22px; padding: 28px;
     transition: transform .45s var(--ease), border-color .3s;
@@ -581,10 +588,10 @@
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <div class="marquee-group">
-        <span>TypeScript</span><em>+</em><span>Node.js</span><em>+</em><span>Python</span><em>+</em><span>PostgreSQL</span><em>+</em><span>FastAPI</span><em>+</em><span>Redis</span><em>+</em><span>Docker</span><em>+</em><span>REST</span><em>+</em><span>JWT</span><em>+</em><span>n8n</span><em>+</em><span>CI/CD</span><em>+</em><span>Multi-tenant systems</span><em>+</em>
+        <span>TypeScript</span><em>+</em><span>Node.js</span><em>+</em><span>Python</span><em>+</em><span>PostgreSQL</span><em>+</em><span>N-Genius</span><em>+</em><span>MyFatoorah</span><em>+</em><span>Checkout.com</span><em>+</em><span>Cregis</span><em>+</em><span>Redis</span><em>+</em><span>Docker</span><em>+</em><span>JWT</span><em>+</em><span>CI/CD</span><em>+</em>
       </div>
       <div class="marquee-group">
-        <span>TypeScript</span><em>+</em><span>Node.js</span><em>+</em><span>Python</span><em>+</em><span>PostgreSQL</span><em>+</em><span>FastAPI</span><em>+</em><span>Redis</span><em>+</em><span>Docker</span><em>+</em><span>REST</span><em>+</em><span>JWT</span><em>+</em><span>n8n</span><em>+</em><span>CI/CD</span><em>+</em><span>Multi-tenant systems</span><em>+</em>
+        <span>TypeScript</span><em>+</em><span>Node.js</span><em>+</em><span>Python</span><em>+</em><span>PostgreSQL</span><em>+</em><span>N-Genius</span><em>+</em><span>MyFatoorah</span><em>+</em><span>Checkout.com</span><em>+</em><span>Cregis</span><em>+</em><span>Redis</span><em>+</em><span>Docker</span><em>+</em><span>JWT</span><em>+</em><span>CI/CD</span><em>+</em>
       </div>
     </div>
   </div>
@@ -676,7 +683,8 @@
             <div class="tab-panel" role="tabpanel" id="panel-ledger" aria-labelledby="tab-ledger">
               <p class="panel-title">Financial transactions API</p>
               <ul class="bullets">
-                <li>Deposit and withdrawal ledger for card, wire, and crypto — idempotent payment intents, provider callbacks, and one transaction status across PSPs.</li>
+                <li>Deposit and withdrawal ledger with idempotent payment intents, provider callbacks, and one transaction status across PSPs.</li>
+                <li>Shipped card payments on N-Genius, MyFatoorah, and Checkout.com, and crypto on Cregis — all in production.</li>
                 <li>Fund reservation and multi-stage review across risk, finance, and treasury, so a payout cannot fire twice.</li>
               </ul>
             </div>
@@ -718,15 +726,15 @@
           <div>
             <p class="kicker" style="color:#b7b1a6">01 — Flagship</p>
             <h3>Trading CRM Platform</h3>
-            <p>Production multi-tenant B2B backend for a regulated trading platform. Authentication, lead routing, the transaction ledger, and the approvals engine, with full audit trails and sub-100ms queries.</p>
+            <p>Production multi-tenant B2B backend for a regulated trading platform. Authentication, lead routing, a transaction ledger on N&#8209;Genius, MyFatoorah, Checkout.com, and Cregis, and the approvals engine, with full audit trails and sub-100ms queries.</p>
             <ul class="tags">
-              <li>TypeScript</li><li>Node.js</li><li>Python</li><li>PostgreSQL</li><li>REST</li><li>CI/CD</li>
+              <li>TypeScript</li><li>Node.js</li><li>Python</li><li>PostgreSQL</li><li>N-Genius</li><li>MyFatoorah</li><li>Checkout.com</li><li>Cregis</li>
             </ul>
           </div>
           <ol class="system-map">
             <li><span>01</span> Multi-tenant auth</li>
             <li><span>02</span> Lead routing</li>
-            <li><span>03</span> Transaction ledger</li>
+            <li><span>03</span><b>N-Genius, MyFatoorah, Checkout, Cregis</b></li>
             <li><span>04</span> Approvals engine</li>
           </ol>
         </article>
@@ -737,14 +745,6 @@
             <p>20+ business workflows for international hospitality clients. API integrations across operations, CRM, and booking platforms, with error handling that holds up in production.</p>
             <ul class="tags">
               <li>n8n</li><li>Make.com</li><li>Zapier</li><li>REST</li><li>Webhooks</li>
-            </ul>
-          </article>
-          <article class="reveal" style="--d:.16s">
-            <p class="kicker">03</p>
-            <h3>Email Automation System</h3>
-            <p>High-volume email automation for 500+ daily guest messages, with multi-language support and dynamic templates.</p>
-            <ul class="tags">
-              <li>Google Apps Script</li><li>APIs</li><li>Automation</li>
             </ul>
           </article>
         </div>
@@ -762,6 +762,7 @@
         <div class="skill-row reveal"><h3>Architecture & APIs</h3><ul class="skill-line"><li>REST</li><li>Microservices</li><li>Clean architecture</li><li>Multi-tenant systems</li><li>Event-driven patterns</li></ul></div>
         <div class="skill-row reveal"><h3>DevOps & testing</h3><ul class="skill-line"><li>Docker</li><li>Git</li><li>CI/CD</li><li>Automated testing</li><li>TDD</li><li>Code reviews</li></ul></div>
         <div class="skill-row reveal"><h3>Security</h3><ul class="skill-line"><li>JWT</li><li>OAuth2</li><li>OTP</li><li>Role-based access</li><li>Encryption</li></ul></div>
+        <div class="skill-row reveal"><h3>Payments</h3><ul class="skill-line"><li>N-Genius</li><li>MyFatoorah</li><li>Checkout.com</li><li>Cregis</li><li>Webhooks</li><li>Idempotent intents</li></ul></div>
         <div class="skill-row reveal"><h3>Integration</h3><ul class="skill-line"><li>n8n</li><li>Make.com</li><li>Zapier</li><li>Webhooks</li><li>Google Apps Script</li></ul></div>
       </div>
     </section>
